@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+import time
+from busio import I2C
+import board
+import adafruit_bme680
+
+i2c = I2C(board.SCL, board.SDA)
+bme680 = adafruit_bme680.Adafruit_BME680_I2C(i2c)
+bme680.sea_level_pressure = 1014
+
+pre_offset = 375.325
+str(bme680.pressure) == bme680.pressure + pre_offset
+temperature_offset = -3 # Chauffe de l'appareil de 3 degrés :/
+
+while True:
+
+	print("Temp " + str(bme680.temperature + temperature_offset) + " c")
+	print("VOCS: " + str(bme680.gas))
+	print("Humidity: " + str(bme680.relative_humidity) + " %")
+	print("Pressure: " + str(bme680.pressure + pre_offset) + " hPa")
+	print("Altitude: " + str(bme680.altitude) + " Metres(Broken)")
+
+	time.sleep(1)

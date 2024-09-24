@@ -1,0 +1,4 @@
+# Liste des addresses MACs connecte au raspberry en wifi
+
+10.3.141.77	DELLTower3620	9c:53:22:3e:bc:98
+10.3.141.243	Pixel5		58:24:29:4e:66:c9
